@@ -1,0 +1,41 @@
+
+# Node.js dependencies
+node_modules/
+**/node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor settings
+.vscode/
+.idea/
+
+# Compressed archives and backups
+*.zip
+*.rar
+*.7z
+
+# Database exports and local database files
+*.db
+*.sqlite
+*.sqlite3

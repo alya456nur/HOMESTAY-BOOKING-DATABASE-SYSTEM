@@ -1,0 +1,935 @@
+/* =======================
+   Theme / Base
+======================= */
+:root{
+  --bg: #f6f8fb;
+  --panel: #ffffff;
+  --border: #e5e9f2;
+  --text: #1f2937;
+  --muted: #64748b;
+
+  --brand: #4f6ef7;
+  --brand-dark: #3c5ce4;
+
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+  --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+*{ box-sizing:border-box; }
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  margin: 0;
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* =======================
+   Header
+======================= */
+.top-header {
+  background: radial-gradient(1200px 500px at 20% 0%, rgba(79,110,247,0.35), transparent 55%),
+              linear-gradient(180deg, #1f2a44 0%, #162038 100%);
+  color: white;
+  padding: 22px 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.header-inner{
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header-left h1{
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+}
+
+.header-left p{
+  margin: 6px 0 0;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.header-right{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.header-chip strong{ 
+  font-weight: 700; 
+}
+
+.header-icon{
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-size: 16px;
+  transition: .15s ease;
+}
+
+.header-icon:hover{
+  background: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+
+
+/* =======================
+   Layout / Container
+======================= */
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+main.dashboard{
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+/* =======================
+   Top “Quick Panel”
+======================= */
+.quick-panel{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.quick-left h2{
+  margin: 0;
+  font-size: 18px;
+}
+
+.quick-left p{
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.quick-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.quick-actions-stack{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.quick-actions-stack .action-btn{
+  width: 220px;
+  justify-content: center;
+}
+
+
+/* Right side column */
+.quick-actions-column{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* New Booking button */
+.new-booking-btn{
+  width: 100%;
+  max-width: 340px;
+  justify-content: center;
+}
+
+/* Row of 3 buttons */
+.quick-actions-row{
+  display: flex;
+  gap: 10px;
+}
+
+/* Make bottom buttons consistent */
+.quick-actions-row .action-btn{
+  min-width: 160px;
+  justify-content: center;
+}
+
+
+
+/* Modern action buttons */
+.action-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: #1f2a44;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: .15s ease;
+}
+
+.action-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.action-btn.primary{
+  background: var(--brand);
+  border-color: rgba(0,0,0,0);
+  color: #fff;
+}
+.action-btn.primary:hover{ background: var(--brand-dark); }
+
+.action-btn.ghost{
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,0.35);
+  color: #fff;
+}
+
+/* =======================
+   Menu Grid (modules)
+======================= */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.menu-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: .18s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 78px;
+}
+
+.menu-card:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(79,110,247,0.30);
+}
+
+.menu-title{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.menu-title strong{
+  font-size: 15px;
+}
+
+.menu-title span{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.menu-icon{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: rgba(79,110,247,0.10);
+  color: var(--brand);
+  font-size: 18px;
+  border: 1px solid rgba(79,110,247,0.18);
+}
+
+/* =======================
+   Reports Section
+======================= */
+.reports-section {
+  margin-top: 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.reports-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.reports-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.reports-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reports-filter label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.report-card {
+  border-radius: var(--radius);
+  padding: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  transition: .18s ease;
+}
+
+.report-card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.report-card h3 {
+  font-size: 12px;
+  margin: 0 0 8px;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.report-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.report-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* =======================
+   Chart Section
+======================= */
+.reports-chart {
+  margin-top: 14px;
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.reports-chart h2 {
+  font-size: 16px;
+  margin: 0 0 12px;
+  color: #0f172a;
+}
+
+/* =======================
+   Inputs / Selects
+======================= */
+.typeFilter,
+input[type="text"],
+input[type="date"],
+select{
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  background: white;
+  height: 42px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.typeFilter:focus,
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus{
+  border-color: rgba(79,110,247,0.55);
+  box-shadow: 0 0 0 4px rgba(79,110,247,0.12);
+}
+
+/* =======================
+   Buttons (existing)
+======================= */
+button {
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+button:hover { cursor: pointer; }
+
+/* Back */
+.btn-back {
+  background: #94a3b8;
+  color: white;
+  padding: 10px 16px;
+  margin: 10px 0 0 18px;
+}
+.btn-back:hover { background: #7b8aa0; }
+
+.btn-cancel {
+  background: #94a3b8;
+  color: white;
+  padding: 10px 16px;
+}
+.btn-cancel:hover { background: #7b8aa0; }
+
+/* Add */
+.btn-add {
+  background: var(--brand);
+  color: white;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+}
+.btn-add:hover { background: var(--brand-dark); }
+
+/* View */
+.btn-view {
+  background: #5b9dff;
+  color: white;
+  padding: 10px 14px;
+}
+.btn-view:hover { background: #4688e0; }
+
+/* Button disabled */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Edit */
+.btn-edit {
+  background: #f5a623;
+  color: white;
+  padding: 10px 14px;
+}
+.btn-edit:hover { background: #e5941c; }
+
+/* Remove */
+.btn-remove {
+  background: #ff6b6b;
+  color: white;
+  padding: 10px 14px;
+}
+.btn-remove:hover { background: #e85a5a; }
+
+/* Action Buttons */
+.action-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* =======================
+   Table (unchanged but modern spacing)
+======================= */
+.table-wrapper table{
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border); /* outer border */
+}
+
+
+
+.table-wrapper {
+  max-height: 440px;
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.table-wrapper th,
+.table-wrapper td{
+  border: 1px solid var(--border);
+}
+
+
+.table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  background: #f1f4fa;
+  z-index: 1;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px;
+  text-align: center;
+}
+
+th { color: #475569; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.3px; }
+
+tr:hover { background: #f9fbff; }
+
+
+/* =======================
+   Modal Popup
+======================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(15,23,42,0.55);
+  backdrop-filter: blur(2px);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 14% auto;
+  padding: 18px;
+  border: 1px solid rgba(0,0,0,0.08);
+  width: 320px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.close-btn {
+  color: #94a3b8;
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close-btn:hover { color: #0f172a; }
+
+/* =======================
+   Badge base + status badges (kept)
+======================= */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  border: 1px solid transparent;
+}
+
+/* Pay status */
+.badge-pay-unpaid { color:#991b1b; background:#fee2e2; border-color:#fecaca; }
+.badge-pay-pending{ color:#92400e; background:#fef3c7; border-color:#fde68a; }
+.badge-pay-paid   { color:#065f46; background:#d1fae5; border-color:#a7f3d0; }
+.badge-pay-none   { color:#475569; background:#f1f5f9; border-color:#e2e8f0; }
+
+/* Homestay status */
+.badge-hs-available { color:#166534; background:#d1fae5; border-color:#a7f3d0; }
+.badge-hs-unavailable{ color:#991b1b; background:#fee2e2; border-color:#fecaca; }
+
+/* Housekeeping status */
+.badge-hk-scheduled { color:#6d28d9; background:#ede9fe; border-color:#ddd6fe; }
+.badge-hk-incomplete{ color:#92400e; background:#fef3c7; border-color:#fde68a; }
+.badge-hk-incleaning{ color:#1e40af; background:#dbeafe; border-color:#bfdbfe; }
+.badge-hk-completed { color:#065f46; background:#d1fae5; border-color:#a7f3d0; }
+.badge-hk-none      { color:#475569; background:#f1f5f9; border-color:#e2e8f0; }
+
+/* Item status */
+.badge-item-available { color:#166534; background:#d1fae5; }
+.badge-item-unavailable{ color:#b91c1c; background:#fee2e2; }
+.badge-item-maintenance{ color:#78350f; background:#fef3c7; }
+.badge-item-none { color:#475569; background:#e2e8f0; }
+
+/* =======================
+    Page Shell
+======================= */
+
+/* =======================
+   Booking Pages - UI polish
+   (Append this to the end of style.css)
+======================= */
+
+/* page wrapper */
+.page-shell{
+  margin: 0 auto;
+  padding: 18px;
+}
+
+/* page toolbar under header */
+.page-toolbar{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0 16px;
+}
+
+.page-title{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.page-title h2{
+  margin: 0;
+  font-size: 18px;
+}
+
+.page-title p{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.toolbar-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* modern content card */
+.content-card{
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* section blocks inside a page */
+.section{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  margin-bottom: 14px;
+}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.section-head h3{
+  margin: 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.section-sub{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
+/* =======================
+    Filter
+======================= */
+
+/* Filter panel container */
+.filter-panel{
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+
+  /* keep everything neat in a single row */
+  display: grid;
+  grid-template-columns: 2.2fr 1.2fr 1.2fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+/* Each control block */
+.filter-panel .control{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0; /* prevents overflow in grid */
+}
+
+/* Label style */
+.filter-panel label{
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+/* Make inputs/selects fill control width */
+.filter-panel input,
+.filter-panel select{
+  width: 100%;
+}
+
+/* Clear button: consistent look */
+.btn-clear-filters{
+  height: 42px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: .15s ease;
+  white-space: nowrap;
+}
+.btn-clear-filters:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  border-color: rgba(79,110,247,0.30);
+}
+
+/* Remove the inline "margin-left:auto" behavior cleanly */
+.filter-panel .control:last-child{
+  margin-left: 0 !important;
+  align-items: stretch !important;
+}
+
+.filters-wrap{
+  margin-top: 10px;
+}
+
+
+/* =======================
+    Search row
+======================= */
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.search-row .search-control {
+  flex: 1 1 260px;
+  min-width: 180px;
+}
+
+.search-row .search-control input {
+  width: 100%;
+  margin: 0;
+}
+
+/* Small helper badge under search */
+.helper-text {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* =======================
+Form layout
+======================= */
+
+/* Make form rows consistent */
+.form-group{
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Better label appearance */
+.form-group > label{
+  font-size: 13px;
+  font-weight: 800;
+  color: #334155;
+}
+
+/* Inputs/selects fill available space */
+.form-group input,
+.form-group select{
+  width: 100%;
+}
+
+/* For your hint text under an input:
+   Put it in column 2 automatically */
+.form-group .hint,
+.form-group .error-text{
+  grid-column: 2 / 3;
+  margin-top: 6px;
+}
+
+/* Form header inside card */
+.form-head {
+  display: flex;
+  align-items: baseline;
+  gap: 50px;
+  margin-bottom: 12px;
+}
+
+.form-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.form-head span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Make forms look tighter + modern */
+.form-card {
+  max-width: 820px; /* narrower looks cleaner */
+}
+
+/* Back button nicer placement on small screens */
+.btn-back {
+  margin: 0;
+}
+
+/* =======================
+  INPUT
+======================= */
+
+/* Make number inputs match the rest */
+input[type="number"]{
+  padding: 10px 12px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input[type="number"]:focus{
+  border-color: rgba(79,110,247,0.55);
+  box-shadow: 0 0 0 4px rgba(79,110,247,0.12);
+}
+
+/* OPTIONAL: remove spinner arrows (Chrome/Edge/Safari) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* OPTIONAL: remove spinner arrows (Firefox) */
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+
+
+/* =======================
+   Responsive tweaks
+======================= */
+@media (max-width: 1100px){
+  .filter-panel{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 900px){
+  .quick-panel{ grid-template-columns: 1fr; }
+  .quick-actions{ justify-content: flex-start; }
+  table{ min-width: 760px; }
+}
+
+@media (max-width: 720px) {
+  .page-toolbar {
+    align-items: flex-start;
+  }
+  .toolbar-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .toolbar-actions{ 
+    width: 100%; 
+    justify-content: flex-start; }
+
+  .filter-panel{
+    grid-template-columns: 1fr;
+  }
+  .btn-clear-filters{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-group{
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+  .form-group .hint,
+  .form-group .error-text{
+    grid-column: 1 / 2;
+  }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payments</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Payments</h1>
+      <p>Track payment status, methods, and receipts</p>
+    </div>
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-solid fa-money-check-dollar"></i>
+        <strong>Module</strong>
+        <span style="opacity:.85;">Payments</span>
+      </div>
+
+            
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <div class="page-toolbar">
+    <div class="page-title">
+      <h2>Payment List</h2>
+      <p>Filter payments by status, method, or date range.</p>
+    </div>
+
+    <div class="toolbar-actions">
+      <button class="action-btn" type="button" onclick="go('index.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+
+  <main class="content-card">
+
+    <div class="filters-wrap">
+      <div class="filter-panel" role="region" aria-label="Payment filters">
+
+        <div class="control">
+          <label for="statusFilter">Status</label>
+          <select class="typeFilter" id="statusFilter" onchange="filterTable()">
+            <option value="">All Status</option>
+            <option value="PENDING">Pending</option>
+            <option value="PAID">Paid</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="methodFilter">Method</label>
+          <select class="typeFilter" id="methodFilter" onchange="filterTable()">
+            <option value="">All Methods</option>
+            <option value="CASH">Cash</option>
+            <option value="BANK TRANSFER">Bank Transfer</option>
+            <option value="E-WALLET">E-Wallet</option>
+          </select>
+        </div>
+
+        <div class="control">
+          <label for="fromDate">From</label>
+          <input type="date" id="fromDate" onchange="filterTable()">
+        </div>
+
+        <div class="control">
+          <label for="toDate">To</label>
+          <input type="date" id="toDate" onchange="filterTable()">
+        </div>
+
+        <!-- Optional: Clear filters button (nice UX) -->
+        <div class="control">
+          <label style="opacity:0;">Clear</label>
+          <button class="btn-clear-filters" type="button" onclick="clearPaymentFilters()">
+            <i class="fa-regular fa-circle-xmark"></i> Clear
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="table-wrapper" style="margin-top: 12px;">
+      <table>
+        <thead>
+        <tr>
+          <th>Payment ID</th>
+          <th>Booking ID</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Payment Date</th>
+          <th>Method</th>
+          <th>Receipt</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="paymentTbody">
+          <!-- JS will insert rows here -->
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/payment.js"></script>
+
+<script>
+  // Optional helper for the Clear button (won't break anything)
+  function clearPaymentFilters(){
+    document.getElementById('statusFilter').value = '';
+    document.getElementById('methodFilter').value = '';
+    document.getElementById('fromDate').value = '';
+    document.getElementById('toDate').value = '';
+    if (typeof filterTable === 'function') filterTable();
+  }
+</script>
+
+</body>
+</html>

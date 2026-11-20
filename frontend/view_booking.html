@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>View Booking</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>View Booking</h1>
+      <p>Booking details (read-only)</p>
+    </div>
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-regular fa-eye"></i>
+        <strong>Mode</strong>
+        <span style="opacity:.85;">View</span>
+      </div>
+            
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <div class="page-toolbar">
+    <div class="page-title">
+      <h2>Booking Details</h2>
+      <p>Review booking information and included items.</p>
+    </div>
+
+    <div class="toolbar-actions">
+      <button class="action-btn" onclick="go('bookings.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+
+  <main class="content-card">
+
+    <!-- Booking info -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3>Booking Information</h3>
+          <p class="section-sub">Read-only details.</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Customer</label>
+        <select class="typeFilter" disabled>
+          <option id="customerName"></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Homestay</label>
+        <select class="typeFilter" disabled>
+          <option id="homestayName"></option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Check-in</label>
+        <input type="date" id="checkIn" disabled>
+      </div>
+
+      <div class="form-group">
+        <label>Check-out</label>
+        <input type="date" id="checkOut" disabled>
+      </div>
+
+      <div class="form-group">
+        <label>Total Nights</label>
+        <input type="number" id="totalNight" disabled>
+      </div>
+    </section>
+
+    <!-- Items -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3>Booking Items</h3>
+          <p class="section-sub">Items included in this booking.</p>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+          <tr>
+            <th>Item</th>
+            <th>Rate Type</th>
+            <th>Rate (RM)</th>
+            <th>Quantity</th>
+            <th>Subtotal (RM)</th>
+          </tr>
+          </thead>
+          <tbody id="bookingItems"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section" style="margin-bottom:0;">
+      <div class="section-head">
+        <div>
+          <h3>Summary</h3>
+          <p class="section-sub">Final totals for this booking.</p>
+        </div>
+      </div>
+
+      <div class="reports-grid">
+        <div class="report-card">
+          <h3>Homestay Total</h3>
+          <p class="report-value" id="homestayTotal"></p>
+        </div>
+
+        <div class="report-card">
+          <h3>Items Total</h3>
+          <p class="report-value" id="itemsTotal"></p>
+        </div>
+
+        <div class="report-card">
+          <h3>Grand Total</h3>
+          <p class="report-value" id="grandTotal"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/view_booking.js"></script>
+</body>
+</html>

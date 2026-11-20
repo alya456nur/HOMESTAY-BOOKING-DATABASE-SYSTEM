@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Receipt</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Receipt</h1>
+      <p>Thank you for your payment</p>
+    </div>
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-solid fa-receipt"></i>
+        <strong>Module</strong>
+        <span style="opacity:.85;">Payments</span>
+      </div>
+            
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <div class="page-toolbar">
+    <div class="page-title">
+      <h2>Receipt Details</h2>
+      <p>Review receipt information and print if needed.</p>
+    </div>
+
+    <div class="toolbar-actions">
+      <button class="action-btn" type="button" onclick="go('payments.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+      <button class="action-btn primary" type="button" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print
+      </button>
+    </div>
+  </div>
+
+  <main class="content-card">
+
+    <!-- Receipt Header -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3>Receipt No: <span id="receiptNumber"></span></h3>
+          <p class="section-sub">Issued on <span id="receiptDate"></span></p>
+        </div>
+
+        <!-- If you want, you can style this later as a badge -->
+        <div>
+          <span class="badge badge-pay-paid" id="paymentStatus"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer / Stay / Payment Info -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3>Summary Information</h3>
+          <p class="section-sub">Customer, stay, and payment details.</p>
+        </div>
+      </div>
+
+      <div class="reports-grid">
+
+        <div class="report-card">
+          <h3>Customer Details</h3>
+          <p><strong>Name:</strong> <span id="customerName"></span></p>
+          <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
+          <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+        </div>
+
+        <div class="report-card">
+          <h3>Stay Information</h3>
+          <p><strong>Check-in:</strong> <span id="checkinDate"></span></p>
+          <p><strong>Check-out:</strong> <span id="checkoutDate"></span></p>
+          <p><strong>Nights:</strong> <span id="nights"></span></p>
+        </div>
+
+        <div class="report-card">
+          <h3>Payment Information</h3>
+          <p><strong>Payment ID:</strong> <span id="paymentId"></span></p>
+          <p><strong>Method:</strong> <span id="paymentMethod"></span></p>
+          <p><strong>Date:</strong> <span id="paymentDate"></span></p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Itemized Charges -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3>Itemized Charges</h3>
+          <p class="section-sub">All items included in this receipt.</p>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+          <tr>
+            <th>No.</th>
+            <th>Item</th>
+            <th>Rate Type</th>
+            <th>Rate (RM)</th>
+            <th>Qty</th>
+            <th>Subtotal (RM)</th>
+          </tr>
+          </thead>
+          <tbody id="itemizedCharges"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Total Summary -->
+    <section class="section" style="margin-bottom:0;">
+      <div class="section-head">
+        <div>
+          <h3>Total Summary</h3>
+          <p class="section-sub">Final amount paid.</p>
+        </div>
+      </div>
+
+      <div class="report-card" style="max-width:420px; margin-left:auto;">
+        <h3>Total Amount</h3>
+        <p class="report-value" id="totalAmount"></p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/view_receipt.js"></script>
+</body>
+</html>

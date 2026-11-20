@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Homestay</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Edit Homestay</h1>
+      <p>Update listing details and availability</p>
+    </div>
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-solid fa-pen"></i>
+        <strong>Action</strong>
+        <span style="opacity:.85;">Update</span>
+      </div>
+            
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <div class="page-toolbar" style="max-width: 820px;">
+    <div class="page-title">
+      <h2>Edit Homestay</h2>
+      <p>Update the details below and save.</p>
+    </div>
+
+    <div class="toolbar-actions">
+      <button class="action-btn" type="button" onclick="go('homestays.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+
+  <main class="content-card form-card">
+
+    <section class="section" style="margin-bottom:0;">
+      <div class="section-head">
+        <div>
+          <h3>Homestay Details</h3>
+          <p class="section-sub">Edit name, description, rate, and status.</p>
+        </div>
+      </div>
+
+      <form id="editHomestayForm">
+
+        <div class="form-group">
+          <label for="homestayID">Homestay ID</label>
+          <input type="text" id="homestayID" placeholder="H001" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="homestayName">Homestay Name</label>
+          <input type="text" id="homestayName" value="Mawar">
+        </div>
+
+        <div class="form-group">
+          <label for="homestayDesc">Descriptions</label>
+          <input type="text" id="homestayDesc" value="...">
+        </div>
+
+        <div class="form-group">
+          <label for="homestayRate">Rate (RM)</label>
+          <input type="number" value="200.00" id="homestayRate">
+        </div>
+
+        <div class="form-group">
+          <label for="homestayStatus">Status</label>
+          <select class="typeFilter" id="homestayStatus">
+            <option value="AVAILABLE" selected>Available</option>
+            <option value="UNAVAILABLE">Unavailable</option>
+          </select>
+        </div>
+
+        <div class="action-group" style="margin-top:16px;">
+          <button type="button" class="btn-add" style="margin:0;" onclick="saveHomestay()">
+            <i class="fa-solid fa-save"></i> Save Changes
+          </button>
+          <button type="button" class="btn-cancel" onclick="resetForm()">
+            Reset
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<!-- Alert Modal -->
+<div id="alertModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <p id="alertMessage">Homestay updated successfully!</p>
+    <button class="btn-view" id="okBtn">OK</button>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/edit_homestay.js"></script>
+</body>
+</html>

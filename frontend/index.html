@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homestay System</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Optional icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <h1>Homestay Booking Database System</h1>
+        <p>Admin Dashboard</p>
+      </div>
+
+      <div class="header-right">
+        <div class="header-chip">
+          <i class="fa-solid fa-shield-halved"></i>
+          <strong>Admin</strong>
+          <span style="opacity:.85;">Panel</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <main class="dashboard">
+
+      <!-- Quick panel (modern) -->
+      <section class="quick-panel">
+  <div class="quick-left">
+    <h2>Dashboard</h2>
+    <p>
+      Manage modules, view report summary, and monitor operations.
+      Use the shortcuts on the right for quicker workflow.
+    </p>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="quick-actions quick-actions-column">
+
+    <!-- Top single button -->
+    <button class="action-btn primary new-booking-btn" style="width: 200px;" type="button" onclick="go('add_booking.html')">
+      <i class="fa-solid fa-plus"></i> New Booking
+    </button>
+
+    <!-- Bottom row of 3 buttons -->
+    <div class="quick-actions-row">
+      <button class="action-btn" onclick="go('bookings.html')">
+        <i class="fa-solid fa-calendar-check"></i> View Bookings
+      </button>
+
+      <button class="action-btn" onclick="go('payments.html')">
+        <i class="fa-solid fa-receipt"></i> Payments
+      </button>
+
+      <button class="action-btn" onclick="go('housekeeping.html')">
+        <i class="fa-solid fa-broom"></i> Housekeeping
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+      <!-- Navigation cards (modern) -->
+      <section class="menu-grid" aria-label="Modules">
+        <div class="menu-card" onclick="go('customers.html')">
+          <div class="menu-title">
+            <strong>Customers</strong>
+            <span>Manage customer records</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-users"></i></div>
+        </div>
+
+        <div class="menu-card" onclick="go('bookings.html')">
+          <div class="menu-title">
+            <strong>Bookings</strong>
+            <span>Create, edit & remove bookings</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-calendar-days"></i></div>
+        </div>
+
+        <div class="menu-card" onclick="go('payments.html')">
+          <div class="menu-title">
+            <strong>Payments</strong>
+            <span>Update payment & receipts</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-credit-card"></i></div>
+        </div>
+
+        <div class="menu-card" onclick="go('homestays.html')">
+          <div class="menu-title">
+            <strong>Homestays</strong>
+            <span>Availability & pricing</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-house"></i></div>
+        </div>
+
+        <div class="menu-card" onclick="go('items.html')">
+          <div class="menu-title">
+            <strong>Items</strong>
+            <span>Supplies & item status</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-box-open"></i></div>
+        </div>
+
+        <div class="menu-card" onclick="go('employees.html')">
+          <div class="menu-title">
+            <strong>Employees</strong>
+            <span>Staff details & roles</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-id-badge"></i></div>
+        </div>
+
+        <div class="menu-card" onclick="go('housekeeping.html')">
+          <div class="menu-title">
+            <strong>Housekeeping</strong>
+            <span>Track cleaning jobs</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-broom"></i></div>
+        </div>
+
+        <div class="menu-card" onclick="go('suppliers.html')">
+          <div class="menu-title">
+            <strong>Suppliers</strong>
+            <span>Supplier contacts & items</span>
+          </div>
+          <div class="menu-icon"><i class="fa-solid fa-truck-fast"></i></div>
+        </div>
+      </section>
+
+      <!-- Reports Section (inside container now) -->
+      <section class="reports-section">
+        <div class="reports-header">
+          <h2>Reports Overview</h2>
+
+          <div class="reports-filter">
+            <label for="yearFilter">Year</label>
+            <select id="yearFilter" class="typeFilter"></select>
+          </div>
+        </div>
+
+        <div class="reports-grid">
+          <div class="report-card">
+            <h3>Total Revenue</h3>
+            <p id="totalRevenue" class="report-value">RM 0</p>
+            <span class="report-sub">All payments received</span>
+          </div>
+
+          <div class="report-card">
+            <h3>Total Bookings</h3>
+            <p id="totalBookings" class="report-value">0</p>
+            <span class="report-sub">Confirmed bookings</span>
+          </div>
+
+          <div class="report-card">
+            <h3>Customers</h3>
+            <p id="totalCustomers" class="report-value">0</p>
+            <span class="report-sub">Registered customers</span>
+          </div>
+
+          <div class="report-card">
+            <h3>Housekeeping Jobs</h3>
+            <p id="totalHousekeeping" class="report-value">0</p>
+            <span class="report-sub">Completed tasks</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chart Section -->
+      <section class="reports-chart">
+        <h2>Monthly Revenue (RM)</h2>
+        <canvas id="revenueChart" style="max-height: 320px;"></canvas>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/report.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

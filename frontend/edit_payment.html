@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Payment</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Edit Payment</h1>
+      <p>Update payment details and status</p>
+    </div>
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-solid fa-pen"></i>
+        <strong>Action</strong>
+        <span style="opacity:.85;">Update</span>
+      </div>
+            
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <div class="page-toolbar" style="max-width: 820px;">
+    <div class="page-title">
+      <h2>Payment Details</h2>
+      <p>Update employee, payment status, date, and method.</p>
+    </div>
+
+    <div class="toolbar-actions">
+      <button class="action-btn" type="button" onclick="go('payments.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+
+  <main class="content-card form-card">
+
+    <section class="section" style="margin-bottom:0;">
+      <div class="section-head">
+        <div>
+          <h3>Edit Payment</h3>
+          <p class="section-sub">Make changes and save.</p>
+        </div>
+      </div>
+
+      <form id="editPaymentForm">
+
+        <div class="form-group">
+          <label for="payId">Payment ID</label>
+          <input type="text" id="payId" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="bookingId">Booking ID</label>
+          <input type="text" id="bookingId" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="employee">Employee</label>
+          <select class="typeFilter" id="employee">
+            <option>Select an employee</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="totalPrice">Total</label>
+          <!-- removed input-prefix because your CSS doesn't define it;
+               keep it simple + consistent -->
+          <input type="number" id="totalPrice" disabled>
+        </div>
+
+        <div class="form-group">
+          <label for="payStatus">Payment Status</label>
+          <select class="typeFilter" id="payStatus">
+            <option value="PAID">Paid</option>
+            <option value="PENDING">Pending</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="payDate">Payment Date</label>
+          <input type="date" id="payDate">
+        </div>
+
+        <div class="form-group">
+          <label for="payMethod">Payment Method</label>
+          <select class="typeFilter" id="payMethod">
+            <option value="CASH">Cash</option>
+            <option value="BANK TRANSFER">Bank Transfer</option>
+            <option value="E-WALLET" selected>E-Wallet</option>
+          </select>
+        </div>
+
+        <div class="action-group" style="margin-top:16px;">
+          <button type="button" class="btn-edit" onclick="savePayment()">
+            <i class="fa-solid fa-floppy-disk"></i> Save Changes
+          </button>
+          <button type="button" class="btn-cancel" onclick="resetForm()">
+            Reset
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<!-- Alert Modal -->
+<div id="alertModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <p id="alertMessage">Payment Details updated successfully!</p>
+    <button class="btn-view" id="okBtn">OK</button>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/edit_payment.js"></script>
+</body>
+</html>

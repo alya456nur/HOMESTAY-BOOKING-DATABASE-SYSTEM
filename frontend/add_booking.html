@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create Booking</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <style>
+    .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .error-text { color: #c0392b; font-size: 13px; margin-top: 10px; display:none; }
+  </style>
+</head>
+
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Create Booking</h1>
+      <p>New booking with items & pricing</p>
+    </div>
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-solid fa-plus"></i>
+        <strong>Action</strong>
+        <span style="opacity:.85;">Create</span>
+      </div>
+
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <div class="page-toolbar">
+    <div class="page-title">
+      <h2>Booking Setup</h2>
+      <p>Select customer, homestay, dates, then add items.</p>
+    </div>
+
+    <div class="toolbar-actions">
+      <button class="action-btn" onclick="go('bookings.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+
+  <main class="content-card">
+
+    <!-- Booking Info -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3>Booking Information</h3>
+          <p class="section-sub">Choose customer, homestay and stay dates.</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Customer</label>
+        <select id="customer" class="typeFilter">
+          <option value="">Loading customers...</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Homestay</label>
+        <select id="homestay" class="typeFilter">
+          <option value="">Loading homestays...</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Check-in</label>
+        <input type="date" id="checkin">
+      </div>
+
+      <div class="form-group">
+        <label>Check-out</label>
+        <input type="date" id="checkout">
+      </div>
+
+      <div class="form-group">
+        <label>Total Nights</label>
+        <input type="number" id="nights" disabled>
+        <div class="hint">Auto-calculated based on check-in and check-out.</div>
+      </div>
+
+      <p id="formError" class="error-text"></p>
+    </section>
+
+    <!-- Items -->
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h3>Add Items</h3>
+          <p class="section-sub">Optional: add extra items with quantity.</p>
+        </div>
+
+        <button class="action-btn primary" id="btnAddItem" type="button">
+          <i class="fa-solid fa-plus"></i> Add Item
+        </button>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="itemsTable">
+          <thead>
+          <tr>
+            <th>Item</th>
+            <th>Rate Type</th>
+            <th>Rate (RM)</th>
+            <th>Quantity</th>
+            <th>Subtotal (RM)</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section" style="margin-bottom:0;">
+      <div class="section-head">
+        <div>
+          <h3>Summary</h3>
+          <p class="section-sub">Totals update automatically.</p>
+        </div>
+      </div>
+
+      <div class="reports-grid">
+        <div class="report-card">
+          <h3>Homestay Total</h3>
+          <p class="report-value">RM <span id="homestayTotal">0.00</span></p>
+        </div>
+
+        <div class="report-card">
+          <h3>Items Total</h3>
+          <p class="report-value">RM <span id="itemsTotal">0.00</span></p>
+        </div>
+
+        <div class="report-card">
+          <h3>Grand Total</h3>
+          <p class="report-value">RM <span id="grandTotal">0.00</span></p>
+        </div>
+      </div>
+
+      <div class="action-group" style="margin-top:16px;">
+        <button class="btn-add" id="btnCreate" style="margin:0;" type="button">
+          <i class="fa-solid fa-check"></i> Create Booking
+        </button>
+        <button class="btn-cancel" type="button" onclick="go('bookings.html')">
+          Cancel
+        </button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Alert Modal -->
+<div id="alertModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <p id="alertMessage">Booking added!</p>
+    <button class="btn-view" id="okBtn">OK</button>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/add_booking.js"></script>
+</body>
+</html>

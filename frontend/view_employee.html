@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>View Employee</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f5f7fb;
+    }
+
+    .header {
+      background: #1f2a44;
+      color: white;
+      padding: 20px 30px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .back-btn {
+      background: #9aa4b2;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      margin-bottom: 20px;
+      color: #1f2a44;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field label {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .field input {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      font-size: 15px;
+    }
+
+    /* Salary display */
+    .salary {
+      grid-column: span 2;
+      background: #eef2ff;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #c7d2fe;
+    }
+
+    .salary label {
+      display: block;
+      font-size: 14px;
+      color: #4338ca;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .salary-value {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1e1b4b;
+    }
+
+    @media (max-width: 768px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .salary {
+        grid-column: span 1;
+      }
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+      justify-content: flex-end;
+      max-width: 900px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Employees Details</h1>
+      <p>View employee profiles, employment type, and records.</p>
+    </div>
+
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-solid fa-user-tie"></i>
+        <strong>Module</strong>
+        <span style="opacity:.85;">Employees</span>
+      </div>
+            
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+  <div class="container">
+    <div class="toolbar-actions">
+      <button class="action-btn" onclick="go('employees.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+
+    <div class="card">
+      <h2>View Employee</h2>
+
+      <div class="details-grid">
+        <div class="field">
+            <label>Employee ID</label>
+            <input type="text" id="emp_id" readonly />
+        </div>
+
+        <div class="field">
+            <label>Employee Type</label>
+            <input type="text" id="emp_type" readonly />
+        </div>
+
+        <div class="field">
+            <label>First Name</label>
+            <input type="text" id="fname" readonly />
+        </div>
+
+        <div class="field">
+            <label>Last Name</label>
+            <input type="text" id="lname" readonly />
+        </div>
+
+        <div class="field">
+            <label>Date of Birth</label>
+            <input type="text" id="dob" readonly />
+        </div>
+
+        <div class="field">
+            <label>Hire Date</label>
+            <input type="text" id="hire_date" readonly />
+        </div>
+
+        <div class="field">
+            <label>Phone Number</label>
+            <input type="text" id="phone" readonly />
+        </div>
+
+        <!-- Salary (view only) -->
+        <div class="salary">
+            <label>Salary (RM)</label>
+            <div id="salary" class="salary-value"></div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/view_employee.js"></script>
+
+</body>
+</html>

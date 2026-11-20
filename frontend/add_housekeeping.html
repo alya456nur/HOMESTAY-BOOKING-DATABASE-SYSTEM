@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Housekeeping</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+<header class="top-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <h1>Add Housekeeping</h1>
+      <p>Create a new cleaning schedule for a homestay.</p>
+    </div>
+
+    <div class="header-right">
+      <div class="header-chip">
+        <i class="fa-solid fa-plus"></i>
+        <strong>Action</strong>
+        <span style="opacity:.85;">Create</span>
+      </div>
+      
+      <a href="index.html" class="header-icon" title="Home">
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="page-shell">
+
+  <div class="page-toolbar" style="max-width: 820px;">
+    <div class="page-title">
+      <h2>Housekeeping Details</h2>
+      <p>Select homestay, employee, and date.</p>
+    </div>
+
+    <div class="toolbar-actions">
+      <button class="action-btn" type="button" onclick="go('housekeeping.html')">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+    </div>
+  </div>
+
+  <main class="content-card form-card">
+    <form id="addHousekeepingForm">
+
+      <div class="form-group">
+        <label for="homestayDropdown">Homestay</label>
+        <select class="typeFilter" id="homestayDropdown">
+          <option value="">Select homestay</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="empDropdown">Assigned Employee</label>
+        <select class="typeFilter" id="empDropdown">
+          <option value="">Select employee</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="housekeepingDate">Cleaning Date</label>
+        <input type="date" id="housekeepingDate">
+      </div>
+
+      <div class="action-group" style="justify-content:flex-start; gap:10px; margin-top:10px;">
+        <button type="button" class="btn-add" style="margin:0;" onclick="addHousekeeping()">
+          <i class="fa-solid fa-plus"></i> Create Housekeeping
+        </button>
+        <button type="button" class="btn-remove" onclick="resetForm()">
+          Reset
+        </button>
+      </div>
+
+    </form>
+  </main>
+</div>
+
+<!-- Alert Modal -->
+<div id="alertModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <p id="alertMessage">Housekeeping created successfully!</p>
+    <button class="btn-view" id="okBtn" type="button">OK</button>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/add_housekeeping.js"></script>
+</body>
+</html>

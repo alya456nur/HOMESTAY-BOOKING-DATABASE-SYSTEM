@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Customer</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <h1>Add Customer</h1>
+        <p>Create a new customer profile</p>
+      </div>
+      <div class="header-right">
+        <div class="header-chip">
+          <i class="fa-solid fa-user-plus"></i>
+          <strong>Action</strong>
+          <span style="opacity:.85;">Create</span>
+        </div>
+
+        <a href="index.html" class="header-icon" title="Home">
+          <i class="fa-solid fa-house"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-shell">
+
+    <div class="page-toolbar">
+      <div class="page-title">
+        <h2>Customer Details</h2>
+        <p>Fill in the details below, then click Add.</p>
+      </div>
+
+      <div class="toolbar-actions">
+        <button class="action-btn" onclick="go('customers.html')">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+      </div>
+    </div>
+
+    <main class="content-card">
+
+      <div class="form-card" style="border:none; box-shadow:none; padding:0;">
+        <div class="form-head">
+          <h2>New Customer</h2>
+          <span>All fields should be valid before submission.</span>
+        </div>
+
+        <form id="addCustomerForm">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="custFName" placeholder="e.g., Ahmad">
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="custLName" placeholder="e.g., Ismail">
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" id="custPhone" placeholder="e.g., 0123456789">
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-add" style="margin:0;" onclick="addCustomer()">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+            <button type="button" class="btn-remove" onclick="resetForm()">
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Alert Modal -->
+  <div id="alertModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <p id="alertMessage">Customer added!</p>
+      <button class="btn-view" id="okBtn">OK</button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/add_customer.js"></script>
+</body>
+</html>
